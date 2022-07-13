@@ -4,12 +4,30 @@ This Dotnet Core app pulls data from Redis and writes the data to Postgres.  Thi
 
 > Note: This application is for demonstration purposes only
 
-## Configure the app to talk to redis and Posgres
-The `appsettings.json` file contains  two keys (RedisConnectionConfig and DatabaseConnectionConfig).  The values for each of those keys will need to be updated for the app work properly.
+## Configure the app to talk to redis and Postgres
 
-## Run locally
-Exuectue the app locally via `dotnet run` from the project folder:
+The `appsettings.json` file contains two keys (RedisConnectionConfig and DatabaseConnectionConfig).  The values for each of those keys will need to be updated for the app work properly.
 
-```
-docker-compose up
-```
+> Note: Postgres needs to be a recent version (example: postgres:14.4)
+
+## Install Dotnet Core 6
+
+Start up a Powershell in Windows VM.
+
+    curl https://download.visualstudio.microsoft.com/download/pr/c246f2b8-da39-4b12-b87d-bf89b6b51298/2d43d4ded4b6a0c4d1a0b52f0b9a3b30/dotnet-sdk-6.0.302-win-x64.exe -o dotnet-sdk-6.0.302-win-x64.exe
+
+Run the Dotnet 6 SKD Installer
+
+    .\dotnet-sdk-6.0.302-win-x64.exe
+
+Install dotnet-ef to support database management
+
+    dotnet tool install --global dotnet-ef --version 6.0.7
+
+## Create Postgres 'votes' table
+
+    dotnet ef database update
+
+## Run the Worker service
+
+    dotnet run

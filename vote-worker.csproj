@@ -6,6 +6,7 @@
     <ImplicitUsings>enable</ImplicitUsings>
     <UserSecretsId>dotnet-vote_worker-836DACDE-6A27-4F3B-B404-82A005507D67</UserSecretsId>
     <RootNamespace>vote_worker</RootNamespace>
+    <GenerateRuntimeConfigurationFiles>True</GenerateRuntimeConfigurationFiles>
   </PropertyGroup>
 
   <ItemGroup>
@@ -13,5 +14,6 @@
     <PackageReference Include="ServiceStack.Redis" Version="6.1.0" />
     <PackageReference Include="StackExchange.Redis.Core" Version="1.1.604" />
     <PackageReference Include="Npgsql.EntityFrameworkCore.PostgreSQL" Version="6.0.5" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore.Design" Version="6.0.5" />
   </ItemGroup>
 </Project>
