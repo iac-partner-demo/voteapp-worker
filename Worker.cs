@@ -6,7 +6,6 @@ using System.Text.Json;
 using System;
 using System.Reflection;
 
-
 public class Worker : BackgroundService
 {
     private readonly ILogger<Worker> _logger;
@@ -72,13 +71,11 @@ public class Worker : BackgroundService
     {
             using (var db = new VotesContext())
             {
-                var blog = new Vote();
-                Random rnd = new Random();
-                blog.id = rnd.GetHashCode();
-                blog.vote = vote;
+                var avote = new Vote();
+                avote.vote = vote;
                 try
                 {
-                        db.Votes.Add(blog);
+                        db.Votes.Add(avote);
                         db.SaveChanges();
                 }
                 catch (Exception e)

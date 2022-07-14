@@ -3,6 +3,7 @@ using VoteApp.PostgreSQL;
 using VoteApp;
 using System.Reflection;
 using Microsoft.EntityFrameworkCore.Metadata.Builders;
+using System.ComponentModel.DataAnnotations.Schema;
 
 namespace VoteApp.PostgreSQL
 {
@@ -19,6 +20,7 @@ namespace VoteApp.PostgreSQL
             var configuration = configBuilder.Build();
             var connectionString = configuration.GetValue<string>("DatabaseConnectionConfig");
             optionsBuilder.UseNpgsql(connectionString);
+            base.OnConfiguring(optionsBuilder);
         }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
@@ -34,6 +36,7 @@ namespace VoteApp.PostgreSQL
 
     public class Vote
     {
+        [Column("id")]
         public int id { get; set; }
         public string vote { get; set; }
         public List<Vote> Votes { get; set; }
