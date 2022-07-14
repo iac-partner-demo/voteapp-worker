@@ -28,6 +28,15 @@ Install dotnet-ef to support database management
 
     dotnet ef database update
 
-## Run the Worker service
+## Run the Worker as a Windows Service
 
-    dotnet run
+Commands to start the worker service:
+    mkdir "C:\Program Files\worker"
+    dotnet publish --output "C:\Program Files\worker\"
+    sc.exe create ".NET VoteApp Worker Service" binpath= "C:\Program Files\worker\vote-worker.exe"
+    sc.exe start ".NET VoteApp Worker Service"
+
+Commands to remove the worker service:
+    sc.exe stop ".NET VoteApp Worker Service"
+    sc.exe delete ".NET VoteApp Worker Service"
+    rm "C:\Program Files\worker"

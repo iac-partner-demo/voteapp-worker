@@ -6,7 +6,6 @@ using System.Text.Json;
 using System;
 using System.Reflection;
 
-
 public class Worker : BackgroundService
 {
     private readonly ILogger<Worker> _logger;
